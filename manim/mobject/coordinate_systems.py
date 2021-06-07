@@ -1355,6 +1355,31 @@ class NumberPlane(Axes):
 
     .. note:: If :attr:`x_length` or :attr:`y_length` are not defined, the plane automatically adjusts its lengths based
         on the :attr:`x_range` and :attr:`y_range` values to set the unit_size to 1.
+        
+        
+        
+        Example:.. manim:: NumberPlaneExample 
+
+    class NumberPlaneExample(Scene):
+        def construct(self):
+            numberline_config = {
+                "include_ticks": True,
+                "tick_size": 0.2,
+                "include_tip": True,
+                "include_numbers": True,
+                "stroke_color": YELLOW,
+            }  # formats the numberline axes
+            background_line_config = {"stroke_color": GREEN, "stroke_width": 2, "stroke_opacity": 1}  # formats the background lines in the plane
+            plane = NumberPlane(
+                x_range=[-4, 4, 1],
+                y_range=[-4, 4, 1],
+                x_length=6,
+                y_length=6,
+                faded_line_ratio=2,
+                axis_config=numberline_config,
+                background_line_style=background_line_config,
+            )
+            self.add(plane)
     """
 
     def __init__(
